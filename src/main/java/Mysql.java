@@ -37,8 +37,14 @@ public class Mysql {
             Connection connection= DriverManager.getConnection(DB,USER,USERPW);
             Statement statemen=connection.createStatement();
 
-            statemen.execute("INSERT INTO user(username,password,role,gender)"+
+            /*statemen.execute("INSERT INTO user(username,password,role,gender)"+
                     "VALUES('SAD','SAAAD','admin','0')");
+
+            statemen.close();
+*/
+
+            statemen.executeUpdate("UPDATE user SET username='krawcu' WHERE id='7'");
+            statemen.close();
 
 
 /*
@@ -47,7 +53,9 @@ public class Mysql {
 
                 System.out.println("--------------------------------------");
                 System.out.println(resultSet.getString("username"));
-            }*/
+
+            }
+            resultSet.close();*/
 
 
 

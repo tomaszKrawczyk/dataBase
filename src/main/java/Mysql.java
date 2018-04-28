@@ -43,7 +43,9 @@ public class Mysql {
             statemen.close();
 */
 
-            statemen.executeUpdate("UPDATE user SET username='krawcu' WHERE id='7'");
+            /*statemen.executeUpdate("UPDATE user SET username='krawcu' WHERE id='7'");*/
+
+            addUSer(connection,"Krawcu1515","haslo");
             statemen.close();
 
 
@@ -66,6 +68,17 @@ public class Mysql {
 
         System.out.println("Jeśli wyżej nie ma błedu, to znaczy ze jest połączenie!");
 
+    }
+
+    public static void addUSer(Connection connection,String username, String password) throws SQLException {
+
+        String sql="INSERT INTO user(username,password,gender,role) VALUES(?,?,'0','ADMIN')";
+        PreparedStatement statement= connection.prepareStatement(sql);
+        statement.setString(1,username);
+        statement.setString(2,password);
+
+
+        System.out.println("Dodałem użytkownika!");
     }
 
 }

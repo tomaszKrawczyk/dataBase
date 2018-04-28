@@ -32,18 +32,25 @@ public class Mysql {
         }
 
 
-        try {
+        try
+        {
             Connection connection= DriverManager.getConnection(DB,USER,USERPW);
             Statement statemen=connection.createStatement();
+
+            statemen.execute("INSERT INTO user(username,password,role,gender)"+
+                    "VALUES('SAD','SAAAD','admin','0')");
+
+
+/*
             ResultSet resultSet=statemen.executeQuery("SELECT * FROM user");
-
-
-
             while (resultSet.next()){
 
                 System.out.println("--------------------------------------");
                 System.out.println(resultSet.getString("username"));
-            }
+            }*/
+
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
